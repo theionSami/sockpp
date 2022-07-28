@@ -43,6 +43,7 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 # --- Executables ---
+include_directories(${PROJECT_SOURCE_DIR}/../../include/)
 
 # IPv4
 

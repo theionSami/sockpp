@@ -107,8 +107,7 @@ void inet6_address::create(const string& saddr, in_port_t port)
 string inet6_address::to_string() const
 {
     char buf[INET6_ADDRSTRLEN];
-    auto str = inet_ntop(AF_INET6, (void*) &(addr_.sin6_addr),
-						 buf, INET6_ADDRSTRLEN);
+    auto str = buf; //inet_ntop(AF_INET6, (void*) &(addr_.sin6_addr),buf, INET6_ADDRSTRLEN);
     return std::string("[") + std::string(str ? str : "<unknown>")
         + "]:" + std::to_string(unsigned(port()));
 }
@@ -118,8 +117,7 @@ string inet6_address::to_string() const
 ostream& operator<<(ostream& os, const inet6_address& addr)
 {
 	char buf[INET6_ADDRSTRLEN];
-	auto str = inet_ntop(AF_INET6, (void*) &(addr.sockaddr_in6_ptr()->sin6_addr),
-						 buf, INET6_ADDRSTRLEN);
+	auto str = buf; //inet_ntop(AF_INET6, (void*) &(addr.sockaddr_in6_ptr()->sin6_addr),buf, INET6_ADDRSTRLEN);
 	os << "[" << (str ? str : "<unknown>") << "]:" << unsigned(addr.port());
 	return os;
 }
