@@ -49,7 +49,7 @@
 
 #include "sockpp/socket.h"
 #include <vector>
-
+#include "iostream"
 namespace sockpp {
 
 /////////////////////////////////////////////////////////////////////////////
@@ -203,6 +203,7 @@ public:
 	 *  	   the string.
 	 */
 	virtual ssize_t write(const std::string& s) {
+		std::cout << "sending: "<<s <<std::endl;
 		return write_n(s.data(), s.size());
 	}
     /**
